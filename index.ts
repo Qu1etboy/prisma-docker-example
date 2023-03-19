@@ -6,6 +6,11 @@ const prisma = new PrismaClient();
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  const { user } = req.query;
+  res.send(`Hello, ${user ? user : "World"}`);
+});
+
 app.get("/user", async (req: Request, res: Response) => {
   try {
     const user = await prisma.user.findMany({

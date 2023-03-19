@@ -6,6 +6,13 @@ services:
       - '4000:4000'
     environment:
       DATABASE_URL: 'mysql://root:1234@mysql:3306/docker_test'
+    volumes:
+      - ./:/usr/src/app
+      
+      # Do this to prevent our host’s copy of node_modules to be mounted to the container
+      # because there are certain packages that have to be built for the platform 
+      # they were supposed to run on, for example Prisma Client.
+      - ignore:/usr/src/app/node_modules/
 
   mysql:
     image: mysql:latest
@@ -17,11 +24,11 @@ services:
     ports:
       - '3306:3306'
 
+  # This is optional, you can also use prisma studio to see the data as well.
   phpmyadmin:
     depends_on:
       - mysql
     image: phpmyadmin/phpmyadmin
-    container_name: docker-example-phpmyadmin
     ports:
       - '8080:80'
     environment:
@@ -29,4 +36,7 @@ services:
       MYSQL_ROOT_PASSWORD: '1234'
 
 volumes:
+  # For storing mysql data
   db_data:
+  # For storing node_modules
+  ignore:

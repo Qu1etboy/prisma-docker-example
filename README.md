@@ -5,7 +5,7 @@ Test running ts-node app with prisma connected to mysql running in docker
 ### Todo
 
 - [x] dockerize Node.js app with Prisma
-- [ ] make nodemon works inside docker container
+- [x] make nodemon works inside docker container
 
 ### Installation
 
@@ -42,4 +42,5 @@ npx prisma migrate dev --name init && npx prisma db seed --preview-feature
 
 ## Reference
 
-- https://gordonmes.dev/docker-prisma/
+- ![docker-prisma](https://gordonmes.dev/docker-prisma/)
+- ![Hot Reload Node-Typscript with Docker!](https://medium.com/@kartikio/setup-node-ts-local-development-environment-with-docker-and-hot-reloading-922db9016119)
