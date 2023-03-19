@@ -60,8 +60,6 @@ app.post("/user", async (req: Request, res: Response) => {
     });
 
     res.json({ user: newUser });
-
-    res.json(user);
   } catch (e) {
     console.error(e);
   }
@@ -139,4 +137,4 @@ app.delete("/post/:id", async (req: Request, res: Response) => {
   res.json({ post });
 });
 
-app.listen(3003, () => console.log("Server running at port 3003"));
+app.listen(4000, () => console.log("Server running at port 4000"));

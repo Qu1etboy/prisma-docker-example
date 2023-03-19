@@ -4,7 +4,8 @@ Test running ts-node app with prisma connected to mysql running in docker
 
 ### Todo
 
-- [ ] dockerize Node.js app with Prisma
+- [x] dockerize Node.js app with Prisma
+- [ ] make nodemon works inside docker container
 
 ### Installation
 
@@ -16,26 +17,29 @@ cd prisma-docker-example
 cp .env.example .env
 ```
 
-- build mysql server inside docker container
+Start everything with docker.
 
 ```bash
 docker-compose up -d
 ```
 
-- setup database
+Enter the shell of our container to setup prisma
 
 ```bash
-npx prisma db push
+docker-compose exec server /bin/sh
 ```
 
-- setup initial data
+Initialize prisma schema and seed data.
 
 ```bash
-npx prisma db seed
+npx prisma migrate dev --name init && npx prisma db seed --preview-feature
 ```
 
-- run web server locally
+## Results
 
-```bash
-npm run dev
-```
+- https://localhost:4000/user to see all users
+- https://localhost:4000/post to see all posts
+
+## Reference
+
+- https://gordonmes.dev/docker-prisma/
