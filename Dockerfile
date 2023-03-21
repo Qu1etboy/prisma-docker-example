@@ -1,3 +1,5 @@
+# Prisma doesn't support node:alpine so I need to used normal version
+# This version is not optimized and cause a lot of image size
 FROM node:19
 
 # Create app directory

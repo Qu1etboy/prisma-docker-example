@@ -7,6 +7,7 @@ Test running ts-node app with prisma connected to mysql running in docker
 - [x] dockerize Node.js app with Prisma
 - [x] make nodemon works inside docker container
 - [ ] optimize docker image size
+- [ ] build docker for production
 
 ### Installation
 
